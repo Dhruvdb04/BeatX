@@ -1,5 +1,5 @@
-import Paper from '../models/paper.models.js';
-import { ApiError } from '../utils/ApiError';
+import { Paper } from '../models/paper.models.js';
+import { ApiError } from '../utils/ApiError.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
 
 

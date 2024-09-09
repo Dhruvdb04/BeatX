@@ -5,8 +5,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { uploadOnCloudinary } from "../utils/coudinary.js";
 import fs from 'fs';
 import pdfParse from 'pdf-parse';
-import gaianetService from '../utils/GaianetService.js';
-
+import { compareAnswers, createVectorSnapshot, getCorrectAnswerVector } from "../utils/GaianetService.js"
 
 
 const pdfUploader = asyncHandler(async(req,res)=>{
@@ -55,7 +54,7 @@ const parsePdf = asyncHandler(async(req,res)=>{
         const markdown = pdfData.text;
 
         // Create a vector snapshot using GaiaNet
-        const vector = await gaianetService.createVectorSnapshot(markdown);
+        const vector = await createVectorSnapshot(markdown);
 
         res.json({ success: true, vector });
     }
@@ -76,10 +75,10 @@ const checkAnswers = asyncHandler(async(req,res) => {
 
     try{
         // Retrieve stored correct answer vectors
-        const correctAnswerVector = await gaianetService.getCorrectAnswerVector();
+        const correctAnswerVector = await getCorrectAnswerVector();
 
         // Compare the vectors
-        const similarity = await gaianetService.compareAnswers(uploadedVector, correctAnswerVector);
+        const similarity = await compareAnswers(uploadedVector, correctAnswerVector);
 
         // Determine feedback based on similarity score
         let feedback = 'Needs Improvement';

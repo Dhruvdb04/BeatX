@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 // Create a vector snapshot using GaiaNet
 export const createVectorSnapshot = async (markdown) => {
