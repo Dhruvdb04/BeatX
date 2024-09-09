@@ -1,6 +1,6 @@
 import React from 'react';
 import "../common/common.css";
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/logo.jpg"
 import { Link } from 'react-router-dom';
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -11,7 +11,7 @@ import LoginForm from "./LoginForm";
 const Template = ({title, description, image, formType}) => {
 
   return (
-    <div className={`min-h-screen flex ${formType == "login" ? "flex-row" : "flex-row-reverse"} blurBgImg`}>
+    <div className={`min-h-screen flex ${formType == "login" ? "flex-row" : "flex-row-reverse"} blurBgImg mt-[-60px]`}>
         {/* leftbox */}
         <div className={`w-full lg:w-[60%] ${formType =='login' ? "slideInFromLeft" : "slideInFromRight"}`}>
             <div className='flexbox justify-between m-7'>
@@ -21,7 +21,9 @@ const Template = ({title, description, image, formType}) => {
                         loading='lazy'
                         width={25}
                     />
-                    <h2 className='text-[18px] font-semibold'>Connect</h2>
+                    <Link to='/'>
+                        <h2 className='text-[18px] font-semibold'>EvaluTeach</h2>
+                    </Link>
                 </div>
                 <div className='flexbox gap-2 text-[14px]'>
                     <p>

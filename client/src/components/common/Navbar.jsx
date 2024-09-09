@@ -1,26 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CgProfile } from 'react-icons/cg';
-import './Navbar.css'
+import './Navbar.css';
+import Logo from "../../assets/logo.jpg";
+import { ChatState } from '../../Context/ChatProvider';
 
-const Navbar = ({ userData }) => { 
+
+const Navbar = () => { 
+
+
+  const {user} = ChatState(); 
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          {/* Add a logo image if needed */}
-          {/* <img src={mg} alt="Logo" /> */}
+          <img src={Logo} alt="Logo" />
         </Link>
         <Link to="/" className="logo-text">
-          EvaluTeach
+          EvaluaTeach
         </Link>
       </div> {/* Close navbar-logo div properly */}
 
       <div className="navbar-actions">
-        {userData?.accountType === "Student" ? (
+        {user?.accountType === "Student" ? (
           <></>  // If the user is a student, no action is taken here
-        ) : userData?.accountType === "Admin" ? (
+        ) : user?.accountType === "Admin" ? (
           <Link to="/admin" className="navbar-link">
             <CgProfile className="icon-Img" /> Admin Dashboard
           </Link>
@@ -34,7 +39,10 @@ const Navbar = ({ userData }) => {
             </Link>
           </>
         )}
+
       </div> {/* Ensure navbar-actions div is inside the nav */}
+
+
     </nav>
   );
 };

@@ -8,6 +8,8 @@ import SecuredRoute from './components/Auth/SecuredRoute';
 import OpenRoute from "./components/Auth/OpenRoute.jsx";
 import Home from "./pages/Home"
 import Dashboard from './pages/Dashboard.jsx';
+import About from './pages/About.jsx';
+import Contact from './pages/Contact.jsx';
 
 
 
@@ -25,6 +27,16 @@ function App() {
         <Route
           path="/"
           element={ <Home/> }
+        />
+
+        <Route
+          path="/about"
+          element={ <About/> }
+        />
+        
+        <Route
+          path="/contact"
+          element={ <Contact/> }
         />
 
         <Route
