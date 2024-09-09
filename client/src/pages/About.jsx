@@ -15,7 +15,7 @@ const About = () => {
         <p className='text-lg leading-relaxed'>
             A digital tool designed to help organizations and teachers efficiently evaluate papers. Provides automated and customizable solutions to speed up the grading process.
         </p>
-        <img src="" alt="About Us" className="w-full h-auto rounded-lg shadow-2xl" />
+        {/* <img src="" alt="About Us" className="w-full h-auto rounded-lg shadow-2xl" /> */}
       </section>
 
       {/* Our Mission Section */}
